@@ -33,14 +33,14 @@ createEmployeeCard("Binky Barnes", "Team Lead"); //Test Case 2
 //Task 3 - Bulk Update on Employee Cards
 function updatedEmployeeCards() {
 
-    const employeeCardsNodeList = document.querySelectorAll(".employee-card");
-    const employeeCardArray = Array.from(employeeCardsNodeList)
+    const employeeCardsNodeList = document.querySelectorAll(".employee-card");  //Using document.querySelectorAll to select all elements
+    const employeeCardArray = Array.from(employeeCardsNodeList) //Using Array.from to convert NodeList into an array
     employeeCardArray.forEach(card => {
-            card.style.backgroundColor = '#f0f0f0';
+            card.style.backgroundColor = '#f0f0f0'; //Updating card background color with forEach
         }
     )};
 
-updatedEmployeeCards()
+updatedEmployeeCards() //Calling updateEmployeeCards
 
 //Task 4 - Employee Card Removal with Event Bubbling
 function eventListener() {  //Created function eventListener so it can be called at the end
@@ -50,7 +50,7 @@ function eventListener() {  //Created function eventListener so it can be called
     })
 }
 
-eventListener(); 
+eventListener(); //Calling for eventListener
 
 
 //Task 5 - Inline Editing for Employee Cards
