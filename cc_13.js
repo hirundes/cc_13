@@ -17,8 +17,9 @@ function createEmployeeCard(name, position) {
 
     const removeButton = document.createElement("button"); //Creating remove button and making it work
     removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
+    removeButton.addEventListener("click",  () => {
         employeeCard.remove();
+        event.stopPropagation(); //Task 4 stopPropogation - DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     });
     employeeCard.appendChild(removeButton); //Appending remove button
 
@@ -29,12 +30,25 @@ createEmployeeCard("Hirun Desilva", "Manager"); //Test Case 1
 createEmployeeCard("Binky Barnes", "Team Lead"); //Test Case 2
 
 //Task 3 - Bulk Update on Employee Cards
-const employeeCardsNodeList = document.querySelectorAll("employee-card");
-const employeeCardArray = Array.from(employeeCardsNodeList)
-employeeCardArray.forEach(card => {
-    const p = card.querySelector("p");
-    if (p) {
-        p.textContent += " - Updated";
-    }
-});
+function updatedEmployeeCards() {
 
+    const employeeCardsNodeList = document.querySelectorAll("employee-card");
+    const employeeCardArray = Array.from(employeeCardsNodeList)
+    employeeCardArray.forEach(card => {
+        const p = card.querySelector("p");
+        if (p) {
+            p.textContent += " - Updated";
+        }
+    });
+};
+
+
+//Task 4 - Employee Card Removal with Event Bubbling
+function eventListener() {  //Created function eventListener so it can be called at the end
+    const employeeContainer = document.getElementById("employeeContainer")  //
+    employeeContainer.addEventListener("click", function(event) {   //Attaching event listeners to employee container
+        console.log("Employee Card Clicked"); //Logged when card is clicked
+    })
+}
+
+eventListener();
