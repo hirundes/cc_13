@@ -24,6 +24,7 @@ function createEmployeeCard(name, position) {
     employeeCard.appendChild(removeButton); //Appending remove button
 
     employeeContainer.appendChild(employeeCard); //Appending employee card to the employee container
+    enableInlineEditing(employeeCard); //Calling Task 5 code
 }
 
 createEmployeeCard("Hirun Desilva", "Manager"); //Test Case 1
@@ -50,4 +51,45 @@ function eventListener() {  //Created function eventListener so it can be called
 }
 
 eventListener(); 
+
+
+//Task 5 - Inline Editing for Employee Cards
+function enableInlineEditing (card) {
+    const nameHeading = card.querySelector("h3") //Selecting where the card is 
+    const positionPara = card.querySelector("p")
+    let removeBtn = card.querySelector("button.remove-btn") //Remove button function is not getting effected
+
+card.addEventListener("dblclick", function() { //Detecting double clicking of card and creating inputs and save button
+        const nameInput = document.createElement("input");        
+        nameInput.type = "text";        
+        nameInput.value = nameHeading.textContent;        
+        const positionInput = document.createElement("input");        
+        positionInput.type = "text";       
+        positionInput.value = positionPara.textContent;    
+        const saveBtn = document.createElement("button"); 
+        saveBtn.textContent = "Save";
+
+        card.innerHTML = "";    //Adding it to the card.
+        card.appendChild(nameInput);     
+        card.appendChild(positionInput);
+        card.appendChild(saveBtn);
+
+        saveBtn.addEventListener("click", function() { //Clicking save button adds the details and saves    
+            nameHeading.textContent = nameInput.value;       
+            positionPara.textContent = positionInput.value;
+
+            card.innerHTML = "";           
+              card.appendChild(nameHeading);      
+                card.appendChild(positionPara);
+                removeBtn = document.createElement("button");   //Making sure remove function is not disturbed.
+                removeBtn.textContent = "Remove";
+                removeBtn.classList.add("remove-btn");
+                removeBtn.addEventListener("click", (event) => {    
+                    event.stopPropagation();  
+                    card.remove();
+                });
+                card.appendChild(removeBtn);
+        });
+    });
+};
 
