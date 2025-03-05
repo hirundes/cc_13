@@ -25,8 +25,8 @@ function createEmployeeCard(name, position) {
     employeeContainer.appendChild(employeeCard); //Appending employee card to the employee container
 }
 
-createEmployeeCard("Lebron James", "Manager"); //Test Case 1
-createEmployeeCard("Tom Brady", "Team Lead"); //Test Case 2
+createEmployeeCard("Hirun Desilva", "Manager"); //Test Case 1
+createEmployeeCard("Binky Barnes", "Team Lead"); //Test Case 2
 
 //Task 3 - Bulk Update on Employee Cards
 const employeeCardsNodeList = document.querySelectorAll("employee-card");
