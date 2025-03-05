@@ -19,7 +19,7 @@ function createEmployeeCard(name, position) {
     removeButton.textContent = "Remove";
     removeButton.addEventListener("click", (event) => {     
         event.stopPropagation();  //Child is only getting triggered not the parent so the message does not show
-        employeeCard.remove(); });
+        employeeContainer.removeChild(employeeCard); });
  
     employeeCard.appendChild(removeButton); //Appending remove button
 
