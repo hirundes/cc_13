@@ -28,7 +28,7 @@ function createEmployeeCard(name, position) {
 }
 
 createEmployeeCard("Hirun Desilva", "Manager"); //Test Case 1
-createEmployeeCard("Binky Barnes", "Team Lead"); //Test Case 2
+createEmployeeCard("Jackie Chan", "Team Lead"); //Test Case 2
 
 //Task 3 - Bulk Update on Employee Cards
 function updatedEmployeeCards() {
